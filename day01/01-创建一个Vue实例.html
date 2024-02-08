@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        目标: 使用Vue完成渲染
+        创建Vue实例,完成初始化渲染
+        1.准备容器(Vue管理的范围)
+        2.引包(开发版本/生产版本)
+        3.创建实例
+        4.添加配置项 => 完成渲染
+     -->
+
+     <div>
+        这里是非Vue区域: {{msg}}
+     </div>
+     =====================================
+    <div id="app">
+        {{msg}}
+    </div>
+    <!-- 开发版本:包含完整的警告和调试模式 -->
+    <script src="./vue.js"></script>
+    <script>
+        // 一旦引入了Vue的包,全局就会有一个Vue的构造函数
+        // console.log("Vue = ",new Vue());
+        //3.创建实例
+        //4.添加配置项 => 完成渲染
+        console.log("Vue = ",typeof Vue);
+        const app = new Vue({
+            // 指定Vue管理的区域
+            el: '#app',
+            // 数据
+            data: {
+                msg: '你好啊,世界'
+            }
+        })
+
+    </script>
+    
+</body>
+</html>
