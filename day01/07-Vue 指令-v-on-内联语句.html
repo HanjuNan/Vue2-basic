@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <button v-on:click="count--">-</button>
+    <span>{{ count }}</span>
+    <button v-on:click="count++">+</button>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14/dist/vue.js"></script>
+  <script>
+    // v-on语法:
+    // v-on:事件名="内联代码" 适合机器简单的场景,一行代码可以搞定
+    // v-on:事件名="事件处理函数" 适合复杂的逻辑处理
+    // 简写: v-on: => @
+
+
+    // 目标: 点击 - 让数字减一, 点击 + 让数字加一
+    const app = new Vue({
+      el: '#app',
+      data: {
+        count: 100
+      }
+    })
+  </script>
+</body>
+
+</html>
