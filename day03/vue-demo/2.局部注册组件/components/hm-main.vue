@@ -1,14 +1,9 @@
 <template>
-  <div class="hm-main">
-    Hm-Main
-    <hm-button></hm-button>
-  </div>
+  <div class="hm-main">Hm-Main</div>
 </template>
 
 <script>
-import hmButton from './hm-button.vue'
 export default {
-  components: { hmButton },
 
 }
 </script>

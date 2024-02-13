@@ -24,7 +24,7 @@ export default {
   components: {
     HmHeader: HmHeader,
     HmFooter: HmFooter,
-    HmMain: HmMain,
+    HmMain: HmMain
   }
 }
 </script>

@@ -1,14 +1,9 @@
 <template>
-  <div class="hm-header">
-    Hm-Header
-    <hm-button></hm-button>
-  </div>
+  <div class="hm-header">Hm-Header</div>
 </template>
 
 <script>
-import hmButton from './hm-button.vue'
 export default {
-  components: { hmButton },
 
 }
 </script>
