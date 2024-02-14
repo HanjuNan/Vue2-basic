@@ -1,41 +1,36 @@
 <template>
   <div class="app">
-    <!-- 把注册好的组件当做标签使用 -->
-    <HmHeader></HmHeader>
-    <HmMain></HmMain>
-    <HmFooter></HmFooter>
+    <!-- 快捷链接  -->
+    <xtx-short-cut></xtx-short-cut>
+    <!-- 头部导航  -->
+    <xtx-header-nav></xtx-header-nav>
+    <!-- 轮播区域 -->
+    <xtx-banner></xtx-banner>
+    <!-- 新鲜好物 -->
+    <xtx-new-goods></xtx-new-goods>
+    <!-- 热门品牌 -->
+    <xtx-hot-brand></xtx-hot-brand>
+     <!-- 最新专题 -->
+    <xtx-topic></xtx-topic>
+     <!-- 版权底部 -->
+     <xtx-footer></xtx-footer>
   </div>
 </template>
 
 <script>
-/**
- * 局部注册 / 全局注册
- * 组件的注册流程:
- *  1. 引入组件
- *  2. 注册组件
- *  3. 使用组件
- */
-//1.引入组件
-import HmHeader from './components/hm-header.vue';
-import HmFooter from './components/hm-footer.vue';
-import HmMain from './components/hm-main.vue';
+import XtxBanner from './components/XtxBanner.vue'
+import XtxFooter from './components/XtxFooter.vue'
+import XtxHeaderNav from './components/XtxHeaderNav.vue'
+import XtxHotBrand from './components/XtxHotBrand.vue'
+import XtxNewGoods from './components/XtxNewGoods.vue'
+import XtxShortCut from './components/XtxShortCut.vue'
+import XtxTopic from './components/XtxTopic.vue'
 export default {
-  // 2.组件局部注册
-  components: {
-    HmHeader: HmHeader,
-    HmFooter: HmFooter,
-    HmMain: HmMain,
-  }
+  components: { XtxShortCut, XtxHeaderNav, XtxBanner, XtxNewGoods, XtxHotBrand, XtxTopic, XtxFooter },
+
 }
 </script>
 
 <style>
-.app {
-  display: flex;
-  width: 350px;
-  height: 500px;
-  background-color: #87ceeb;
-  flex-direction: column;
-  justify-content: space-between;
-}
+
 </style>

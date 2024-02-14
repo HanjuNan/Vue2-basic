@@ -1,18 +1,12 @@
 import Vue from 'vue'
 import App from './App.vue'
+import './styles/base.css' // css 样式重置
+import './styles/common.css' // 公共全局样式
+import './assets/iconfont/iconfont.css' // 字体图标的样式
+
+// import './styles/index.css' // 页面样式
 Vue.config.productionTip = false
 
-// 引入需要全局注册的组件
-import HmButton from './components/hm-button.vue'
-console.log("HmButton = ",HmButton);
-// 注册为全局组件
-Vue.component("HmButton", HmButton)
-// 根据App组件实例,创建VNode
-const app = new Vue({
-  // render函数: 根据App实例,来创建DOM元素,挂载到指定容器
-  render: h => {
-    return h(App)
-  },
-})
-// 将VNode挂载到指定容器
-app.$mount('#app')
+new Vue({
+  render: h => h(App),
+}).$mount('#app')
