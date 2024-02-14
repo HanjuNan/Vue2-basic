@@ -8,6 +8,12 @@
 
 <script>
 export default {
+  data() {
+    console.log("data函数执行...")
+    return {
+      count: 0
+    }
+  }
 }
 </script>
 

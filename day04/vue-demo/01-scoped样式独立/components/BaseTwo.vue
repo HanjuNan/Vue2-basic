@@ -10,7 +10,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 div{
   border: 3px solid red;
   margin: 30px;
