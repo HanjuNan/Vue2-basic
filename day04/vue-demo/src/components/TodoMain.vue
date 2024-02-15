@@ -4,8 +4,8 @@
       <ul class="todo-list">
         <li class="todo" v-for="(item, index) in list" :key="item.id">
           <div class="view">
-            <span class="index">{{ index }}.</span> <label>{{ item.name }}</label>
-            <button class="destroy"></button>
+            <span class="index">{{ index + 1 }}.</span> <label>{{ item.name }}</label>
+            <button @click="hDel(item.id)" class="destroy"></button>
           </div>
         </li>
       </ul>
@@ -18,6 +18,11 @@ export default {
         list: {
             type: Array,
             required: true,
+        }
+    },
+    methods: {
+        hDel(id) {
+            this.$emit("del", id)
         }
     }
 }
