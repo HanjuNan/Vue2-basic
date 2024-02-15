@@ -1,32 +1,19 @@
 <template>
-  <!-- props可以接收任意类型 任意数量的自定义属性 -->
   <div class="app">
-    <UserInfo
-      :username="username"
-      :age="age"
-      :isSingle="isSingle"
-      :car="car"
-      :hobby="hobby"
-    ></UserInfo>
+    <BaseProgress :w="width"></BaseProgress>
   </div>
 </template>
 
 <script>
-import UserInfo from './components/UserInfo.vue'
+import BaseProgress from './components/BaseProgress.vue'
 export default {
   data() {
     return {
-      username: '小帅',
-      age: 28,
-      isSingle: true,
-      car: {
-        brand: '宝马',
-      },
-      hobby: ['篮球', '足球', '羽毛球'],
+      width: 30,
     }
   },
   components: {
-    UserInfo,
+    BaseProgress,
   },
 }
 </script>

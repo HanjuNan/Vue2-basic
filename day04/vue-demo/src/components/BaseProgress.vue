@@ -8,7 +8,24 @@
 
 <script>
 export default {
-  props: ['w']
+  //1.属性基本写法
+  // props: {
+  //    w: Number
+  // }
+  //2.完整写法
+  props: {
+    w: {
+      type: Number,
+      // default: 50,
+      // required: true,
+      validator: function (value) {
+        if (value > 0 && value <= 100) {
+          return true;
+        }
+        return false
+      }
+    }
+  }
 }
 </script>
 
