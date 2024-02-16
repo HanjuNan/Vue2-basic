@@ -1,9 +1,9 @@
 <template>
-  <div class="base-dialog-wrap">
+  <div v-show="visible" class="base-dialog-wrap">
     <div class="base-dialog">
       <div class="title">
         <h3>温馨提示：</h3>
-        <button class="close">x</button>
+        <button @click="hClose" class="close">x</button>
       </div>
       <div class="content">
         <p>你确认要退出本系统么？</p>
@@ -18,6 +18,18 @@
 
 <script>
 export default {
+  props: {
+    visible: {
+      type: Boolean,
+      required: true,
+    }
+  },
+  methods: {
+    hClose() {
+      // this.$emit("close", false)
+      this.$emit("update:visible", false)
+    }
+  }
 }
 </script>
 
