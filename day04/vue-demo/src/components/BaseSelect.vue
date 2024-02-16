@@ -1,6 +1,6 @@
 <template>
   <div>
-    <select :value="selectId" @change="selectCity">
+    <select :value="value" @change="selectCity">
       <option value="101">北京</option>
       <option value="102">上海</option>
       <option value="103">武汉</option>
@@ -13,11 +13,11 @@
 <script>
 export default {
   props: {
-    selectId: String,
+    value: String,
   },
   methods: {
     selectCity(e) {
-      this.$emit('changeCity', e.target.value)
+      this.$emit('input', e.target.value)
     },
   },
 }

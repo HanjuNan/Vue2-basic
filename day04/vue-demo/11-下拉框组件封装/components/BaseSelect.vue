@@ -1,6 +1,6 @@
 <template>
   <div>
-    <select>
+    <select @change="hChange" :value="cityId">
       <option value="101">北京</option>
       <option value="102">上海</option>
       <option value="103">武汉</option>
@@ -12,6 +12,18 @@
 
 <script>
 export default {
+  props: {
+    cityId: {
+      type: String,
+      required: true,
+    }
+  },
+  methods: {
+    hChange(e) {
+      // console.log("change val = ", val.target.value);
+      this.$emit("changeCity", e.target.value);
+    }
+  }
 }
 </script>
 
