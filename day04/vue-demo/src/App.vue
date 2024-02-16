@@ -3,7 +3,7 @@
   <section id="app">
     <todo-header @add="hAdd"></todo-header>
     <todo-main @del="hDel" :list="list"></todo-main>
-    <todo-footer></todo-footer>
+    <todo-footer @clear="hClear" :list="list"></todo-footer>
   </section>
 </template>
 
@@ -30,11 +30,12 @@ export default {
   components: { TodoHeader, TodoMain, TodoFooter },
   data () {
     return {
-      list: [
-        {id: 1, name: '跑步十公里'},
-        {id: 2, name: '打球一整天'},
-        {id: 3, name: '吃饭一公斤'}
-      ]
+      // list: [
+      //   {id: 1, name: '跑步十公里'},
+      //   {id: 2, name: '打球一整天'},
+      //   {id: 3, name: '吃饭一公斤'}
+      // ]
+      list: localStorage.getItem('list') ? JSON.parse(localStorage.getItem('list')) : []
     }
   },
   methods: {
@@ -44,6 +45,17 @@ export default {
     },
     hDel(id) {
       this.list = this.list.filter(item => item.id !== id)
+    },
+    hClear() {
+      this.list = [];
+    }
+  },
+  watch: {
+    list: {
+      deep: true,
+      handler() {
+        localStorage.setItem('list', JSON.stringify(this.list));
+      }
     }
   }
 
