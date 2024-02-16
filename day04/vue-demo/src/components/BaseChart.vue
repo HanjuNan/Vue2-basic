@@ -1,8 +1,13 @@
 <template>
-  <div class="base-chart-box">子组件</div>
+  <div ref="box" class="base-chart-box">子组件</div>
 </template>
 
 <script>
+/**
+ * $refs只会在当前组件中查找盒子
+ * 1.给标签添加ref属性
+ * 2.使用this.$refs.属性名来获取DOM元素
+ */
 import * as echarts from 'echarts'
 
 export default {
@@ -10,7 +15,8 @@ export default {
     // 基于准备好的dom，初始化echarts实例
     // document.querySelector 会查找项目中所有的元素
     // $refs只会在当前组件查找盒子
-    const myChart = echarts.init(document.querySelector('.base-chart-box'))
+    // const myChart = echarts.init(document.querySelector('.base-chart-box'))
+    const myChart = echarts.init(this.$refs.box)
     // 绘制图表
     myChart.setOption({
       title: {
