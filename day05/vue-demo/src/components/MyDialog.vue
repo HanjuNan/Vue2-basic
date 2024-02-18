@@ -6,7 +6,8 @@
     </div>
 
     <div class="dialog-content">
-      你确认要删除么
+      <!-- slot插槽占位 -->
+      <slot></slot>
     </div>
     <div class="dialog-footer">
       <button>取消</button>
