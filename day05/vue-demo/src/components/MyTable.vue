@@ -14,7 +14,8 @@
         <td>{{ item.name }}</td>
         <td>{{ item.age }}</td>
         <td>
-          <button>删除</button>
+          <!-- <button>删除</button> -->
+          <slot :index="index" :item="item"></slot>
         </td>
       </tr>
     </tbody>
