@@ -2,20 +2,35 @@
   <table class="my-table">
     <thead>
       <tr>
-        <th>序号</th>
-        <th>姓名</th>
-        <th>年纪</th>
-        <th>操作</th>
+        <th>编号</th>
+        <th>名称</th>
+        <th>图片</th>
+        <th width="100px">标签</th>
       </tr>
     </thead>
     <tbody>
-      <tr v-for="(item, index) in data" :key="item.id">
-        <td>{{ index + 1 }}</td>
-        <td>{{ item.name }}</td>
-        <td>{{ item.age }}</td>
+      <tr>
+        <td>1</td>
+        <td>梨皮朱泥三绝清代小品壶经典款紫砂壶</td>
         <td>
-          <!-- <button>删除</button> -->
-          <slot :index="index" :item="item"></slot>
+          <img
+            src="https://yanxuan-item.nosdn.127.net/f8c37ffa41ab1eb84bff499e1f6acfc7.jpg"
+          />
+        </td>
+        <td>
+          标签组件
+        </td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>全防水HABU旋钮牛皮户外徒步鞋山宁泰抗菌</td>
+        <td>
+          <img
+            src="https://yanxuan-item.nosdn.127.net/221317c85274a188174352474b859d7b.jpg"
+          />
+        </td>
+        <td>
+          标签组件
         </td>
       </tr>
     </tbody>
@@ -24,50 +39,41 @@
 
 <script>
 export default {
-  props: {
-    data: Array
-  }
 }
 </script>
 
-<style scoped>
+<style lang="less" scoped>
+
 .my-table {
-  width: 450px;
-  text-align: center;
-  border: 1px solid #ccc;
-  font-size: 24px;
-  margin: 30px auto;
+  width: 100%;
+  border-spacing: 0;
+  img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+    vertical-align: middle;
+  }
+  th {
+    background: #f5f5f5;
+    border-bottom: 2px solid #069;
+  }
+  td {
+    border-bottom: 1px dashed #ccc;
+  }
+  td,
+  th {
+    text-align: center;
+    padding: 10px;
+    transition: all .5s;
+    &.red {
+      color: red;
+    }
+  }
+  .none {
+    height: 100px;
+    line-height: 100px;
+    color: #999;
+  }
 }
-.my-table thead {
-  background-color: #1f74ff;
-  color: #fff;
-}
-.my-table thead th {
-  font-weight: normal;
-}
-.my-table thead tr {
-  line-height: 40px;
-}
-.my-table th,
-.my-table td {
-  border-bottom: 1px solid #ccc;
-  border-right: 1px solid #ccc;
-}
-.my-table td:last-child {
-  border-right: none;
-}
-.my-table tr:last-child td {
-  border-bottom: none;
-}
-.my-table button {
-  width: 65px;
-  height: 35px;
-  font-size: 18px;
-  border: 1px solid #ccc;
-  outline: none;
-  border-radius: 3px;
-  cursor: pointer;
-  background-color: #ffffff;
-  margin-left: 5px;
-}
+
 </style>
