@@ -1,21 +1,17 @@
 <template>
   <div class="dialog">
     <div class="dialog-header">
-      <h3>友情提示</h3>
+      <!-- <h3>友情提示</h3> -->
+      <slot name="header"></slot>
       <span class="close">✖️</span>
     </div>
 
     <div class="dialog-content">
-      <!-- 
-        插槽的默认值: 如果没有传入自定义结果,则默认使用的内容
-       -->
-      <slot>
-        我是slot默认值
-      </slot>
+      <slot name="body"></slot>
     </div>
     <div class="dialog-footer">
-      <button>取消</button>
-      <button>确认</button>
+      <slot name="footer"></slot>
+     
     </div>
   </div>
 </template>

@@ -6,7 +6,12 @@
     </div>
 
     <div class="dialog-content">
-      <slot></slot>
+      <!-- 
+        插槽的默认值: 如果没有传入自定义结果,则默认使用的内容
+       -->
+      <slot>
+        我是slot默认值
+      </slot>
     </div>
     <div class="dialog-footer">
       <button>取消</button>
