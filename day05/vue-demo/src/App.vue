@@ -1,49 +1,127 @@
 <template>
-  <div>
-    <h1 v-color="color1">指令的值1测试</h1>
-    <h1 v-color="color2">指令的值2测试</h1>
+  <div class="main">
+    <div class="box" v-loading="list.length === 0">
+      <ul >
+        <li v-for="item in list" :key="item.id" class="news">
+          <div class="left">
+            <div class="title">{{ item.title }}</div>
+            <div class="info">
+              <span>{{ item.source }}</span>
+              <span>{{ item.time }}</span>
+            </div>
+          </div>
+
+          <div class="right">
+            <img :src="item.img" alt="">
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
 <script>
-/**
- * 总结:
- * 1.通过指令的值相关语法,可以应对更复杂指令封装的场景
- * 2.指令值得语法:
- *  2.1 v-指令名 = "指令值",通过等号可以绑定指令的值
- *  2.2 通过binding.value可以拿到指令的值
- *  2.3 通过update钩子,可以监听指令值得变化,进行DOM更新操作
- * 
- */
+// 安装axios =>  npm i axios
+import axios from 'axios'
+
+// 接口地址：http://hmajax.itheima.net/api/news
+// 请求方式：get
 export default {
-  // 注册局部指令
   directives: {
-    color: {
-      // 参数1: 指令绑定的元素对象
-      // 参数2: 指令相关的值
-      // inserted: 会在元素插入到DOM时执行
-      // update: 会在指令的值更新时自动执行
-      inserted(el, binding) {
-        // console.log("el = ",el);
-        // console.log("binding = ",binding);
-        el.style.color = binding.value
-      },
-      update(el, binding) {
-        console.log("update el = ",el);
-        console.log("update binding = ",binding);
-        el.style.color = binding.value
-      }
-    }
+    loading: {
+        inserted(el, binding) {
+            if (binding.value) {
+              el.classList.add("loading")
+            } else {
+              el.classList.remove("loading")
+            }
+        },
+        update(el, binding) {
+          if (binding.value) {
+              el.classList.add("loading")
+            } else {
+              el.classList.remove("loading")
+            }
+        }
+     }
   },
   data () {
     return {
-      color1: 'red',
-      color2: 'orange'
+      list: [],
+      isLoading: true
     }
+  },
+  async created () {
+    // 1. 发送请求获取数据
+    const res = await axios.get('http://hmajax.itheima.net/api/news')
+    
+    setTimeout(() => {
+      // 2. 更新到 list 中，用于页面渲染 v-for
+      this.list = res.data.data
+      this.isLoading = false
+    }, 2000)
   },
 }
 </script>
 
 <style>
+.loading:before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff url('./loading.gif') no-repeat center;
+}
 
+.box2 {
+  width: 400px;
+  height: 400px;
+  border: 2px solid #000;
+  position: relative;
+}
+
+
+
+.box {
+  width: 800px;
+  min-height: 500px;
+  border: 3px solid orange;
+  border-radius: 5px;
+  position: relative;
+}
+.news {
+  display: flex;
+  height: 120px;
+  width: 600px;
+  margin: 0 auto;
+  padding: 20px 0;
+  cursor: pointer;
+}
+.news .left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-right: 10px;
+}
+.news .left .title {
+  font-size: 20px;
+}
+.news .left .info {
+  color: #999999;
+}
+.news .left .info span {
+  margin-right: 20px;
+}
+.news .right {
+  width: 160px;
+  height: 120px;
+}
+.news .right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 </style>
