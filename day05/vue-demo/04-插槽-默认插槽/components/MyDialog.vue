@@ -6,6 +6,7 @@
     </div>
 
     <div class="dialog-content">
+      <!-- slot插槽占位 -->
       <slot></slot>
     </div>
     <div class="dialog-footer">
