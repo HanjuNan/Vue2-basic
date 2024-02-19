@@ -8,17 +8,25 @@
       class="input"
       type="text"
       placeholder="输入标签"
+      :value="value"
+      @keydown.enter="confirm"
     />
     <div
       @dblclick="isEdit = true" 
       class="text" v-else>
-      茶壶
+      {{ value }}
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    value: {
+      type: String,
+      required: true
+    }
+  },
   directives: {
     focus: {
       inserted(el) {
@@ -32,14 +40,10 @@ export default {
     }
   },
   methods: {
-    // show() {
-    //   this.isEdit = true
-    //   // 直接这样是获取不到的,因为DOM更新是异步的
-    //   // this.$refs.inp.focus()
-    //   this.$nextTick(() => {
-    //     this.$refs.inp.focus()
-    //   })
-    // }
+   confirm(e) {
+    this.$emit('input', e.target.value)
+    this.isEdit = false
+   }
   }
 }
 </script>

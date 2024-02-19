@@ -1,6 +1,8 @@
 <template>
   <div class="table-case">
-    <MyTag></MyTag>
+    <!-- <MyTag @input="tag1 = $event" :value="tag1"></MyTag> -->
+    <!-- <MyTag @input="tag2 = $event" :value="tag2"></MyTag> -->
+    <!-- <MyTag v-model="tag1"></MyTag> -->
     <MyTable></MyTable>
   </div>
 </template>
@@ -11,11 +13,13 @@ import MyTable from './components/MyTable.vue'
 export default {
   name: 'TableCase',
   components: {
-    MyTag,
+    // MyTag,
     MyTable
   },
   data () {
     return {
+      tag1: '茶壶',
+      tag2: '牛皮鞋',
       goods: [
         { id: 101, picture: 'https://yanxuan-item.nosdn.127.net/f8c37ffa41ab1eb84bff499e1f6acfc7.jpg', name: '梨皮朱泥三绝清代小品壶经典款紫砂壶', tag: '茶具' },
         { id: 102, picture: 'https://yanxuan-item.nosdn.127.net/221317c85274a188174352474b859d7b.jpg', name: '全防水HABU旋钮牛皮户外徒步鞋山宁泰抗菌', tag: '男鞋' },
