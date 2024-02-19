@@ -1,104 +1,69 @@
 <template>
-  <div class="table-case">
-    <!-- <MyTag @input="tag1 = $event" :value="tag1"></MyTag> -->
-    <!-- <MyTag @input="tag2 = $event" :value="tag2"></MyTag> -->
-    <!-- <MyTag v-model="tag1"></MyTag> -->
-    <MyTable :data="goods">
-      <template v-slot:header>
-        <th>编号</th>
-        <th>名称</th>
-        <th>图片</th>
-        <th width="100px">标签</th>
-      </template>
-      <template v-slot:body="{ item, index }">
-        <td>{{ index + 1 }}</td>
-        <td>{{ item.name }}</td>
-        <td>
-          <img :src="item.picture" />
-        </td>
-        <td>
-         <MyTag v-model="item.tag"></MyTag>
-        </td>
-      </template>
-    </MyTable>
-    <MyTable :data="goods">
-      <template v-slot:header>
-        <th>编号</th>
-        <th>姓名</th>
-        <th>图片</th>
-        <th width="100px">标签</th>
-      </template>
-      <template v-slot:body="{ item, index }">
-        <td>{{ index + 1 }}</td>
-        <td>{{ item.name }}</td>
-        <td>
-          <img :src="item.picture" />
-        </td>
-        <td>
-          <MyTag v-model="item.tag"></MyTag>
-        </td>
-      </template>
-    </MyTable>
+  <div>
+    <div class="footer_wrap">
+      <a href="#/find">发现音乐</a>
+      <a href="#/my">我的音乐</a>
+      <a href="#/friend">朋友</a>
+    </div>
+    <div class="top">
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 
 <script>
-import MyTag from './components/MyTag.vue'
-import MyTable from "./components/MyTable.vue";
-export default {
-  name: "TableCase",
-  components: {
-    MyTag,
-    MyTable,
-  },
-  data() {
-    return {
-      tag1: "茶壶",
-      tag2: "牛皮鞋",
-      goods: [
-        {
-          id: 101,
-          picture:
-            "https://yanxuan-item.nosdn.127.net/f8c37ffa41ab1eb84bff499e1f6acfc7.jpg",
-          name: "梨皮朱泥三绝清代小品壶经典款紫砂壶",
-          tag: "茶具",
-        },
-        {
-          id: 102,
-          picture:
-            "https://yanxuan-item.nosdn.127.net/221317c85274a188174352474b859d7b.jpg",
-          name: "全防水HABU旋钮牛皮户外徒步鞋山宁泰抗菌",
-          tag: "男鞋",
-        },
-        {
-          id: 103,
-          picture:
-            "https://yanxuan-item.nosdn.127.net/cd4b840751ef4f7505c85004f0bebcb5.png",
-          name: "毛茸茸小熊出没，儿童羊羔绒背心73-90cm",
-          tag: "儿童服饰",
-        },
-        {
-          id: 104,
-          picture:
-            "https://yanxuan-item.nosdn.127.net/56eb25a38d7a630e76a608a9360eec6b.jpg",
-          name: "基础百搭，儿童套头针织毛衣1-9岁",
-          tag: "儿童服饰",
-        },
-      ],
-    };
-  },
-};
+/**
+ * 1.上面是单页面应用程序?
+ * 所有功能都在一个html页面山实现
+ * 2.单页面应用的优缺点?
+ *  优点:按需更新性能高,开发效率高,用户体验好
+ *  缺点: 首屏加载慢,不利于SEO
+ * 
+ * 小结:
+ * 1.什么是路由
+ *  路由是一种映射关系
+ * 2. Vue中的路由是什么?
+ *  路径和组件的映射关系
+ * 
+ * Vue-Router的使用步骤
+ * 1.下载依赖包 Vue2 -> vue-router3
+ * 2.引入
+ * 3.安装插件
+ * 4.创建路由对象
+ * 5.注入到new Vue中,建立关联
+ * 
+ * 路由的两个核心步骤:
+ * 1.配置组件和路径的对应规则
+ * 2.配置路由出口 router-view
+ */
+export default {};
 </script>
 
-<style lang="less" scoped>
-.table-case {
-  width: 1000px;
-  margin: 50px auto;
-  img {
-    width: 100px;
-    height: 100px;
-    object-fit: contain;
-    vertical-align: middle;
-  }
+<style>
+body {
+  margin: 0;
+  padding: 0;
+}
+.footer_wrap {
+  position: relative;
+  left: 0;
+  top: 0;
+  display: flex;
+  width: 100%;
+  text-align: center;
+  background-color: #333;
+  color: #ccc;
+}
+.footer_wrap a {
+  flex: 1;
+  text-decoration: none;
+  padding: 20px 0;
+  line-height: 20px;
+  background-color: #333;
+  color: #ccc;
+  border: 1px solid black;
+}
+.footer_wrap a:hover {
+  background-color: #555;
 }
 </style>
