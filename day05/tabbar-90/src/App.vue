@@ -7,6 +7,7 @@
 
 <script>
 import MyTabBar from "./components/MyTabBar.vue";
+// import axios from "axios";
 export default {
   components: { MyTabBar },
   data() {
@@ -30,6 +31,7 @@ export default {
       ],
     };
   },
+ 
 };
 </script>
 
