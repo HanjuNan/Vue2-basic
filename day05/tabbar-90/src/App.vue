@@ -1,7 +1,7 @@
 <template>
   <div>
     <router-view></router-view>
-    <my-tab-bar></my-tab-bar>
+    <my-tab-bar :tabs="tabList"></my-tab-bar>
   </div>
 </template>
 
@@ -15,17 +15,17 @@ export default {
         {
           iconText: "icon-shangpinliebiao",
           text: "商品列表",
-          componentName: "MyGoodsList",
+          path: "/list",
         },
         {
           iconText: "icon-sousuo",
           text: "商品搜索",
-          componentName: "MyGoodsSearch",
+          path: "/search",
         },
         {
           iconText: "icon-user",
           text: "我的信息",
-          componentName: "MyUserInfo",
+          path: "/info",
         },
       ],
     };
