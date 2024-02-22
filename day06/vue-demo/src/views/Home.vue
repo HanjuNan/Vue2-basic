@@ -3,7 +3,7 @@
     <div class="logo-box"></div>
     <div class="search-box">
       <input type="text">
-      <button>搜索一下</button>
+      <button @click="toSearch">搜索一下</button>
     </div>
     <div class="hot-link">
       <!-- 
@@ -40,7 +40,15 @@
 
 <script>
 export default {
-  name: 'FindMusic'
+  name: 'FindMusic',
+  methods: {
+    toSearch() {
+      // 编程式导航: 使用js进行路由跳转
+      // this.$router.push("路径") 简单写法
+      // this.$router.push({path: '路径'}) 完整写法
+      this.$router.push("/search")
+    }
+  }
 }
 </script>
 
