@@ -2,7 +2,7 @@
   <div class="home">
     <div class="logo-box"></div>
     <div class="search-box">
-      <input type="text">
+      <input v-model="words" type="text">
       <button @click="toSearch">搜索一下</button>
     </div>
     <div class="hot-link">
@@ -51,7 +51,26 @@ export default {
 
       //2.使用name跳转
       // 先去index.js中配置路由的name
-      this.$router.push({name: 'search'})
+      // this.$router.push({name: 'search'})
+      // path + query 传参
+      // 1.手动拼接方式
+      // this.$router.push('路径?参数名=参数值')
+      // 2.官方api方式
+       // this.$router.push({
+      //   path: '/search',
+      //   query: {
+      //     words: this.words
+      //   }
+      // })
+
+      // path + 动态路由传参
+      this.$router.push(`/search/${this.words}`)
+     
+    }
+  },
+  data() {
+    return {
+      words: ''
     }
   }
 }
