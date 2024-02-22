@@ -12,8 +12,8 @@ const router = new VueRouter({
     // redirect: 重定向到指定的路径
     { path: '/', redirect: '/home'},
     { path: '/home', component: Home },
-    { path: '/search/:words?', component: Search },
-    { path: '*', component: NotFind }
+    { name: 'search', path: '/search/:words?', component: Search },
+    {  path: '*', component: NotFind }
   ]
 })
 

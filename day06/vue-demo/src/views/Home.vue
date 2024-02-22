@@ -46,7 +46,12 @@ export default {
       // 编程式导航: 使用js进行路由跳转
       // this.$router.push("路径") 简单写法
       // this.$router.push({path: '路径'}) 完整写法
-      this.$router.push("/search")
+      // 1.使用path跳转
+      // this.$router.push("/search")
+
+      //2.使用name跳转
+      // 先去index.js中配置路由的name
+      this.$router.push({name: 'search'})
     }
   }
 }
