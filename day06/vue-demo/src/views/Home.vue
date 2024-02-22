@@ -6,10 +6,15 @@
       <button>搜索一下</button>
     </div>
     <div class="hot-link">
+      <!-- 
+        query传参: 查询字符串
+        1.传递:路径?参数名 = 参数值 & 参数名2 = 参数值2...
+        2.目标组件中接收参数: $route.query.参数名
+       -->
       热门搜索：
-      <router-link to="/search">黑马程序员</router-link>
-      <router-link to="/search">前端培训</router-link>
-      <router-link to="/search">如何成为前端大牛</router-link>
+      <router-link to="/search?words=黑马程序员">黑马程序员</router-link>
+      <router-link to="/search?words=前端培训">前端培训</router-link>
+      <router-link to="/search?words=如何成为前端大牛">如何成为前端大牛</router-link>
     </div>
   </div>
 </template>

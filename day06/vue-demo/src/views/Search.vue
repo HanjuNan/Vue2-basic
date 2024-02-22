@@ -1,6 +1,6 @@
 <template>
   <div class="search">
-    <p>搜索关键字: </p>
+    <p>搜索关键字: {{ $route.query.words }}</p>
     <p>搜索结果: </p>
     <ul>
       <li>.............</li>
@@ -13,7 +13,10 @@
 
 <script>
 export default {
-  name: 'MyFriend'
+  name: 'MyFriend',
+  created() {
+    console.log(this.$route.query.words);
+  }
 }
 </script>
 
