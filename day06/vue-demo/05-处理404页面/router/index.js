@@ -6,7 +6,6 @@ import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
 const router = new VueRouter({
-  mode: "history",
   routes: [
     // path: 匹配用户访问的路径
     // redirect: 重定向到指定的路径
