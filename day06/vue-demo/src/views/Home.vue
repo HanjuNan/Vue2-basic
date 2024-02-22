@@ -39,6 +39,49 @@
 </template>
 
 <script>
+/**
+ * 总结:
+ * 编程式导航,如何跳转传参?
+ * 总共大类有两种传参方式或者说跳转方式: path跳转和name跳转
+ *  path两种: path + query 、 path + params
+ *  name两种: name + query 、 name + params
+ * 
+ * 1.path 路径跳转
+ * 1.1 query传参
+ * this.$router.push('/path?参数名=参数值&参数名2=参数值2...')
+ * this.$router.push({
+ *  path: '/路径',
+ *  query:{
+ *    参数名: 参数值
+ *  }
+ * })
+ * 1.2 动态路由传参(需要配置动态路由)
+ * this.$router.push('/路径/参数值')
+ * this.$router.push({
+ *  path: '/路径/参数值'
+ * })
+ * 
+ * 2. name命名路由跳转
+ * 2.1 query传参
+ * this.$router.push({
+ *  name: '命名',
+ *  query: {
+ *    参数名: 参数值
+ *  }
+ * })
+ * 
+ * 2.2 动态路由传参
+ *  this.$router.push({
+ *    name: '命名',
+ *    params: {
+ *      参数名: 参数值
+ *    }
+ * })
+ * 
+ * 平时path方式用的多,除非name太长了
+ * 
+ * 
+ */
 export default {
   name: 'FindMusic',
   methods: {
@@ -54,17 +97,31 @@ export default {
       // this.$router.push({name: 'search'})
       // path + query 传参
       // 1.手动拼接方式
-      // this.$router.push('路径?参数名=参数值')
-      // 2.官方api方式
-       // this.$router.push({
-      //   path: '/search',
-      //   query: {
-      //     words: this.words
-      //   }
-      // })
+    
+    // path不能加params参数对象
+     this.$router.push({
+        path: '/search/' + this.words,
+        // params: {
+        //   words: this.words
+        // }
+     })
 
-      // path + 动态路由传参
-      this.$router.push(`/search/${this.words}`)
+    // name + query
+    // 语法和path + query传参一样,只是把path换成name
+    // this.$router.push({
+    //   name: 'search',
+    //   query: {
+    //     words: this.words
+    //   }
+    // })
+
+    // name + 动态路由传参
+    // this.$router.push({
+    //   name: 'search',
+    //   params: {
+    //     words: this.words
+    //   }
+    // })
      
     }
   },
