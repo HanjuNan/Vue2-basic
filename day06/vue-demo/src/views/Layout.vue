@@ -1,13 +1,13 @@
 <template>
   <div class="h5-wrapper">
     <div class="content">
-      内容部分
+      <router-view></router-view>
     </div>
     <nav class="tabbar">
-      <a href="#/article">面经</a>
-      <a href="#/collect">收藏</a>
-      <a href="#/like">喜欢</a>
-      <a href="#/user">我的</a>
+      <router-link to="/article">面经</router-link>
+      <router-link to="/collect">收藏</router-link>
+      <router-link to="/like">喜欢</router-link>
+      <router-link to="/user">我的</router-link>
     </nav>
   </div>
 </template>

@@ -1,24 +1,20 @@
 <template>
   <div class="article-page">
     <div
+      v-for="(item) in list"
+      :key="item.id"
       class="article-item">
       <div class="head">
-        <img src="http://teachoss.itheima.net/heimaQuestionMiniapp/%E5%AE%98%E6%96%B9%E9%BB%98%E8%AE%A4%E5%A4%B4%E5%83%8F%402x.png" alt="" />
+        <img :src="item.creatorAvatar" alt="" />
         <div class="con">
-          <p class="title">百度前端面经</p>
-          <p class="other">靑春，那么骚 | 2022-01-20</p>
+          <p class="title">{{ item.stem }}</p>
+          <p class="other">{{ item.creatorName }} | {{ item.createdAt }}</p>
         </div>
       </div>
       <div class="body">
-        虽然百度这几年发展势头落后于AT，甚至快被京东赶上了，毕竟瘦死的骆驼比马大，
-        面试还是相当有难度和水准的。一面
-        1.询问你的项目经验、学习经历、主修语言（照实答）
-        2.解释ES6的暂时性死区（ let 和 var 的区别）
-        3.箭头函数、闭包、异步（老生常谈，参见上文）
-        4.高阶函数（呃……我真不太清楚这是啥，听起来挺像闭包的）
-        5.求N的阶乘末尾有多少个0，在线码代码或讲思路（求因数，统计2、5、10的个数
+        {{ item.content }}
       </div>
-      <div class="foot">点赞 44 | 浏览 315</div>
+      <div class="foot">点赞 {{ item.likeCount }} | 浏览 {{ item.views }}</div>
     </div>
   </div>
 </template>
@@ -29,8 +25,19 @@
  * 请求地址: https://mock.boxuegu.com/mock/3083/articles
  * 请求方式: get
  */
+import axios from 'axios';
 export default {
-  name: 'ArticlePage'
+  name: 'ArticlePage',
+  data() {
+    return {
+      list: []
+    }
+  },
+  async created() {
+    const res = await axios.get("https://mock.boxuegu.com/mock/3083/articles")
+    // console.log("res = ",res);
+    this.list = res.data.result.rows
+  },
 };
 </script>
 <style lang="less" scoped>

@@ -1,5 +1,6 @@
 <template>
   <div class="h5-wrapper">
+    <router-view></router-view>
   </div>
 </template>
 
