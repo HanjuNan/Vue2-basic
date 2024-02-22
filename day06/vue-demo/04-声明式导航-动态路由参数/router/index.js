@@ -6,9 +6,6 @@ Vue.use(VueRouter)
 
 const router = new VueRouter({
   routes: [
-    // path: 匹配用户访问的路径
-    // redirect: 重定向到指定的路径
-    {path: '/', redirect: '/home'},
     { path: '/home', component: Home },
     { path: '/search/:words?', component: Search }
   ]
