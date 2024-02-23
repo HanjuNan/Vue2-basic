@@ -1,6 +1,7 @@
 <template>
   <div class="article-page">
     <div
+      @click="$router.push(`/detail/${item.id}`)"
       v-for="(item) in list"
       :key="item.id"
       class="article-item">
