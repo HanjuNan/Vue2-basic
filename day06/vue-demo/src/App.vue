@@ -1,6 +1,13 @@
 <template>
   <div class="h5-wrapper">
-    <router-view></router-view>
+    <!-- 组件缓存 -->
+    <!-- 组件缓存: 在切换组件的router-view处包裹一个标签: <keep-alive></keep-alive> 
+          所有在keep-alive组件内切换的组件,都会被缓存起来,不会销毁
+    -->
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
+    
   </div>
 </template>
 
