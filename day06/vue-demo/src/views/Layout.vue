@@ -14,7 +14,8 @@
 
 <script>
 export default {
-  name: 'LayoutPage'
+  name: 'LayoutPage',
+ 
 }
 </script>
 

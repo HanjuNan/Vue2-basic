@@ -29,12 +29,20 @@
 import axios from 'axios';
 export default {
   name: 'ArticlePage',
+ 
+  activated() {
+    console.log("组件被激活了");
+  },
+  deactivated() {
+    console.log("组件失活了");
+  },
   data() {
     return {
       list: []
     }
   },
   async created() {
+    console.log("组件创建了...");
     const res = await axios.get("https://mock.boxuegu.com/mock/3083/articles")
     // console.log("res = ",res);
     this.list = res.data.result.rows
