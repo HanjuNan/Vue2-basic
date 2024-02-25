@@ -9,14 +9,15 @@
     <van-rate v-model="value" />
 
     <van-nav-bar
-  title="标题"
-  left-text="返回"
-  right-text="按钮"
-  left-arrow
-  @click-left="onClickLeft"
-  @click-right="onClickRight"
-/>
+      title="标题"
+      left-text="返回"
+      right-text="按钮"
+      left-arrow
+      @click-left="onClickLeft"
+      @click-right="onClickRight"
+    />
 
+    <div class="box"></div>
   </div>
 </template>
 
@@ -41,5 +42,10 @@ export default {
 </script>
 
 <style>
-
+.box {
+  width: 200px;
+  height: 200px;
+  background-color: yellow;
+}
 </style>
+
