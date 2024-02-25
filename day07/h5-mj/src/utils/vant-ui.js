@@ -1,6 +1,5 @@
 import Vue from 'vue'
-import { Button, Rate, NavBar } from 'vant'
+import { Tabbar, TabbarItem } from 'vant'
 
-Vue.use(NavBar)
-Vue.use(Button)
-Vue.use(Rate)
+Vue.use(Tabbar)
+Vue.use(TabbarItem)
