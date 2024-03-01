@@ -9,7 +9,10 @@
         name="username"
         label="用户名"
         placeholder="用户名"
-        :rules="[{ required: true, message: '请填写用户名' }]"
+        :rules="[
+          { required: true, message: '请填写用户名' },
+          { pattern: /^\w{5,}$/, message: '用户名必须5位以上'}
+        ]"
       />
       <van-field
         v-model="password"
@@ -17,7 +20,10 @@
         name="password"
         label="密码"
         placeholder="密码"
-        :rules="[{ required: true, message: '请填写密码' }]"
+        :rules="[
+          { required: true, message: '请填写密码' },
+          { pattern: /^\w{6,}$/, message: '密码必须6位以上' }
+          ]"
       />
       <div style="margin: 16px">
         <van-button  block type="primary" native-type="submit"
@@ -42,22 +48,29 @@ export default {
   },
   methods: {
     async onSubmit (values) {
+      await register(values)
+      // console.log('res = ', res)
+      // 注册成功
+      // 提示用户
+      this.$toast.success('注册成功')
+      // 跳转到登录页面
+      this.$router.push('/login')
       // console.log('submit', values)
       // const res = await request.post('/user/register', values)
       // console.log('res = ', res)
-      try {
-        await register(values)
-        // console.log('res = ', res)
-        // 注册成功
-        // 提示用户
-        this.$toast.success('注册成功')
-        // 跳转到登录页面
-        this.$router.push('/login')
-      } catch (err) {
-        // 注册失败
-        // 提示用户注册失败
-        this.$toast.fail(err.response.data.message)
-      }
+      // try {
+      //   await register(values)
+      //   // console.log('res = ', res)
+      //   // 注册成功
+      //   // 提示用户
+      //   this.$toast.success('注册成功')
+      //   // 跳转到登录页面
+      //   this.$router.push('/login')
+      // } catch (err) {
+      //   // 注册失败
+      //   // 提示用户注册失败
+      //   this.$toast.fail(err.response.data.message)
+      // }
     }
   }
 }

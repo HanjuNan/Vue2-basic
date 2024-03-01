@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import { Toast } from 'vant'
 // 1.不方便
 // 2.修改了axios这个对象,以后项目中所有用到的axios都被修改了
 // 建议: 新建一个axios对象来配置
@@ -25,6 +25,10 @@ instance.interceptors.request.use(function (config) {
 instance.interceptors.response.use(function (response) {
   return response
 }, function (error) {
+  if (error.response) {
+    // 响应失败,出现异常情况的处理
+    Toast.fail(error.response.data.message)
+  }
   return Promise.reject(error)
 })
 
