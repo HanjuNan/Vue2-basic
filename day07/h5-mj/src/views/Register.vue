@@ -30,7 +30,8 @@
 </template>
 
 <script>
-import request from '@/utils/request'
+// import request from '@/utils/request'
+import { register } from '@/api/user'
 export default {
   name: 'RegisterPage',
   data () {
@@ -42,8 +43,21 @@ export default {
   methods: {
     async onSubmit (values) {
       // console.log('submit', values)
-      const res = await request.post('/user/register', values)
-      console.log('res = ', res)
+      // const res = await request.post('/user/register', values)
+      // console.log('res = ', res)
+      try {
+        await register(values)
+        // console.log('res = ', res)
+        // 注册成功
+        // 提示用户
+        this.$toast.success('注册成功')
+        // 跳转到登录页面
+        this.$router.push('/login')
+      } catch (err) {
+        // 注册失败
+        // 提示用户注册失败
+        this.$toast.fail(err.response.data.message)
+      }
     }
   }
 }
