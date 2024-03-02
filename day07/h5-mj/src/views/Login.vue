@@ -37,7 +37,7 @@
 
 <script>
 import { login } from '@/api/user'
-
+import { setToken } from '@/utils/storage'
 export default {
   name: 'LoginPage',
   data () {
@@ -50,7 +50,8 @@ export default {
     async onSubmit (values) {
       // 发起登录请求
       const res = await login(values)
-      localStorage.setItem('hmmj-vant-h5-90-token', res.data.data.token)
+      // localStorage.setItem('hmmj-vant-h5-90-token', res.data.data.token)
+      setToken(res.data.data.token)
       // 保存token
       // console.log('res = ', res)
       // 登录成功
