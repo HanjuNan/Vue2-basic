@@ -29,7 +29,8 @@ instance.interceptors.request.use(function (config) {
 
 // 响应拦截器
 instance.interceptors.response.use(function (response) {
-  return response
+  // 数据脱壳,去掉自带的data
+  return response.data
 }, function (error) {
   if (error.response) {
     if (error.response.status === 401) {

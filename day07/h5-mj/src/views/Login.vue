@@ -51,7 +51,7 @@ export default {
       // 发起登录请求
       const res = await login(values)
       // localStorage.setItem('hmmj-vant-h5-90-token', res.data.data.token)
-      setToken(res.data.data.token)
+      setToken(res.data.token)
       // 保存token
       // console.log('res = ', res)
       // 登录成功

@@ -28,7 +28,7 @@ export default {
       sorter: 'weight_desc'
     })
     // console.log(res)
-    this.list = res.data.data.rows
+    this.list = res.data.rows
   },
   data () {
     return {
