@@ -19,8 +19,18 @@
 </template>
 
 <script>
+import { getArticles } from '@/api/article'
 export default {
   name: 'article-page',
+  async created () {
+    console.log('发送请求...')
+    const res = await getArticles({
+      current: 1, // 当前页面
+      pageSize: 10, // 每页获取多少条
+      sorter: 'weight_desc'
+    })
+    console.log(res)
+  },
   data () {
     return {
 
