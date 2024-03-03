@@ -12,8 +12,7 @@
       <div class="logo"><img src="@/assets/logo.png" alt=""></div>
     </nav>
 
-    <ArticleItem></ArticleItem>
-    <ArticleItem></ArticleItem>
+    <ArticleItem :item="item" v-for="item in list" :key="item.id"></ArticleItem>
 
   </div>
 </template>
@@ -23,17 +22,17 @@ import { getArticles } from '@/api/article'
 export default {
   name: 'article-page',
   async created () {
-    console.log('发送请求...')
     const res = await getArticles({
       current: 1, // 当前页面
       pageSize: 10, // 每页获取多少条
       sorter: 'weight_desc'
     })
-    console.log(res)
+    // console.log(res)
+    this.list = res.data.data.rows
   },
   data () {
     return {
-
+      list: []
     }
   },
   methods: {
