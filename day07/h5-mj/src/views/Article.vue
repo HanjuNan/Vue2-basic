@@ -48,7 +48,6 @@ export default {
     // 5. 让current++获取下一页数据
     // 6. 当current大于总页数时候,停止发请求,将finished改为true
     async onLoad () {
-      console.log('到底了,该加载数据了..')
       const res = await getArticles({
         current: this.current, // 当前页面
         pageSize: 10, // 每页获取多少条
@@ -67,7 +66,6 @@ export default {
       }
     },
     hChange (sorter) {
-      console.log('切换...')
       // console.log('sorter = ', sorter)
       // 1.重置所有的数据
       this.sorter = sorter

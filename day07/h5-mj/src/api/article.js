@@ -14,3 +14,43 @@ import request from '@/utils/request'
 export const getArticles = (params) => {
   return request.get('/interview/query', { params })
 }
+
+export const getArticleDetail = (id) => {
+  return request.get('/interview/show', { params: { id } })
+}
+
+export const updateLike = (id) => {
+  return request.post('interview/opt', {
+    id,
+    optType: 1 // 喜欢
+  })
+}
+
+export const updateCollect = (id) => {
+  return request.post('interview/opt', {
+    id,
+    optType: 2 // 收藏
+  })
+}
+
+// 获取我的收藏
+export const getArticlesCollect = (obj) => {
+  return request.get('/interview/opt/list', {
+    params: {
+      page: obj.page, // 当前页
+      pageSize: 5, // 可选
+      optType: 2 // 表示收藏
+    }
+  })
+}
+
+// 获取我的喜欢
+export const getArticlesLike = (obj) => {
+  return request.get('/interview/opt/list', {
+    params: {
+      page: obj.page, // 当前页
+      pageSize: 5, // 可选
+      optType: 1 // 表示喜欢
+    }
+  })
+}
