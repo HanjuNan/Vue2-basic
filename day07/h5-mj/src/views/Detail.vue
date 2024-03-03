@@ -13,7 +13,7 @@ export default {
     }
   },
   async created () {
-
+    console.log(this.$route.params.id)
   },
   methods: {
 
