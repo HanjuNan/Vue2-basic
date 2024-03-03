@@ -10,7 +10,7 @@
  */
 
 import request from '@/utils/request'
-import { getToken } from '@/utils/storage'
+
 export const getArticles = (params) => {
-  return request.get('/interview/query', { params, headers: { Authorization: `Bearer ${getToken()}` } })
+  return request.get('/interview/query', { params })
 }
