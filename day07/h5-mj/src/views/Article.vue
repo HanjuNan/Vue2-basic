@@ -1,18 +1,18 @@
 <template>
   <div class="article-page">
     <nav class="my-nav van-hairline--bottom">
-      <a
-        href="javascript:;"
-        >推荐</a
-      >
-      <a
-        href="javascript:;"
-        >最新</a
-      >
-      <div class="logo"><img src="@/assets/logo.png" alt=""></div>
+      <a href="javascript:;">推荐</a>
+      <a href="javascript:;">最新</a>
+      <div class="logo"><img src="@/assets/logo.png" alt="" /></div>
     </nav>
-
-    <ArticleItem :item="item" v-for="item in list" :key="item.id"></ArticleItem>
+    <van-list
+      v-model="loading"
+      :finished="finished"
+      finished-text="没有更多了"
+      @load="onLoad"
+    >
+      <ArticleItem :item="item" v-for="item in list" :key="item.id"></ArticleItem>
+    </van-list>
 
   </div>
 </template>
@@ -32,11 +32,18 @@ export default {
   },
   data () {
     return {
-      list: []
+      list: [],
+      loading: false,
+      finished: false
     }
   },
   methods: {
-
+    // 1. load事件在页面滑动到底部时自动触发
+    // 2. 触发时会自动将Loading改为true,此时我们可以去发请求
+    // 3. 请求到数据后,将loading改为false
+    onLoad () {
+      console.log('到底了,该加载数据了..')
+    }
   }
 }
 </script>
@@ -63,7 +70,7 @@ export default {
       position: relative;
       transition: all 0.3s;
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
@@ -93,5 +100,4 @@ export default {
     }
   }
 }
-
 </style>
