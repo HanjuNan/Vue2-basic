@@ -1,5 +1,8 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
+  // 将所有引入资源的路径都改为相对路径(不太推荐)
+  // 因为项目上线就应该是在服务器的根目录
+  publicPath: './',
   transpileDependencies: true,
   css: {
     loaderOptions: {

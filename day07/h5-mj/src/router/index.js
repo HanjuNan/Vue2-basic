@@ -1,16 +1,35 @@
-import Register from '@/views/Register.vue'
-import Login from '@/views/Login.vue'
-import Detail from '@/views/Detail.vue'
-import Layout from '@/views/Layout.vue'
-import Article from '@/views/Article.vue'
-import User from '@/views/User.vue'
-import Collect from '@/views/Collect.vue'
-import Like from '@/views/Like.vue'
+// import Register from '@/views/Register.vue'
+// import Login from '@/views/Login.vue'
+// import Detail from '@/views/Detail.vue'
+// import Layout from '@/views/Layout.vue'
+// import Article from '@/views/Article.vue'
+// import User from '@/views/User.vue'
+// import Collect from '@/views/Collect.vue'
+// import Like from '@/views/Like.vue'
+
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import { getToken } from '@/utils/storage'
 import { Toast } from 'vant'
+
+const Register = () => import('@/views/Register.vue')
+// const Register = () => import('@/views/Register.vue')
+// Register -> function
+// console.log('Register = ', Register)
+// ctrl + enter 跳到下一行
+// alt + 上下 移动代码
+const Login = () => import('@/views/Login.vue')
+const Detail = () => import('@/views/Detail.vue')
+const Layout = () => import('@/views/Layout.vue')
+const Article = () => import('@/views/Article.vue')
+const Collect = () => import('@/views/Collect.vue')
+const Like = () => import('@/views/Like.vue')
+const User = () => import('@/views/User.vue')
 Vue.use(VueRouter)
+
+// import Register from '@/views/Register.vue'
+// Register -> Object
+// console.log('Register = ', Register)
 
 const routes = [
   {
