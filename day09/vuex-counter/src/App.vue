@@ -1,6 +1,6 @@
 <template>
   <div class="app-container">
-    <h1>App 根组件</h1>
+    <h1>App 根组件 -- {{ $store.state.count }}</h1>
     <hr>
 
     <div class="count-box">
@@ -23,7 +23,7 @@ export default {
     MyRight
   },
   created () {
-    console.log(this.$store)
+    // console.log(this.$store)
   }
 }
 </script>

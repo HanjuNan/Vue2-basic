@@ -3,7 +3,7 @@
     <h3>Left 组件</h3>
     <hr>
 
-    <p>count 值：</p>
+    <p>count 值：{{ $store.state.count }}</p>
     <button class="btn btn-primary">+1</button>
   </div>
 </template>

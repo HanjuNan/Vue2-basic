@@ -13,7 +13,9 @@ Vue.use(Vuex)
 
 // 创建仓库 new Vuex.Store()
 const store = new Vuex.Store({
-
+  state: {
+    count: 100
+  }
 })
 // 导出仓库,在main.js中挂载
 export default store
