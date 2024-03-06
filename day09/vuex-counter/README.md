@@ -47,3 +47,9 @@ computed: {
 computed: {
     ...mapState(['count'])
 }
+// mapState的返回值是对象 ...mapState()对对象进行解构赋值,将对应的函数取出来
+// 大白话理解辅助函数: 就是vuex帮我们写好了计算属性,放到对象中返回给我们了.
+// 我们之后只需要将其在computed中展开即可
+
+# 核心概念-mutations
+目标: 掌握mutations的操作流程,来修改state数据.(state数据的修改只能通过Mutation)
