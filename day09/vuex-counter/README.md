@@ -53,3 +53,8 @@ computed: {
 
 # 核心概念-mutations
 目标: 掌握mutations的操作流程,来修改state数据.(state数据的修改只能通过Mutation)
+
+辅助函数 - mapMutations
+目标: 掌握辅助函数mapMutations,映射方法
+mapMutations和mapState很像,它是把位于mutations中的方法提取出来了,映射到组件的methods中
+
