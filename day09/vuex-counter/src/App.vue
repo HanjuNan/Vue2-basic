@@ -1,6 +1,7 @@
 <template>
   <div class="app-container">
     <h1>App 根组件 -- {{ $store.state.count }}</h1>
+    <input @input="changeCount" :value="$store.state.count" class="form-control" type="number" />
     <hr>
 
     <div class="count-box">
@@ -24,6 +25,12 @@ export default {
   },
   created () {
     // console.log(this.$store)
+  },
+  methods: {
+    changeCount (e) {
+      // console.log('e = ', e)
+      this.$store.commit('setCount', +e.target.value)
+    }
   }
 }
 </script>

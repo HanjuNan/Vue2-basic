@@ -30,6 +30,9 @@ const store = new Vuex.Store({
     },
     subCount (state, payload) {
       state.count -= payload
+    },
+    setCount (state, n) {
+      state.count = n
     }
   }
 })
