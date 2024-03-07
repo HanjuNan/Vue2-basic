@@ -4,7 +4,9 @@
     <hr>
 
     <p>count 值：{{ count }}</p>
-    <button class="btn btn-warning">-1</button>
+    <button @click="hClick(1)" class="btn btn-warning">-1</button>
+    <button @click="hClick(5)" class="btn btn-warning">-5</button>
+    <button @click="hClick(10)" class="btn btn-warning">-10</button>
   </div>
 </template>
 
@@ -22,6 +24,11 @@ export default {
     // }
     // mapState是一个函数
     ...mapState(['count'])
+  },
+  methods: {
+    hClick (n) {
+      this.$store.commit('subCount', n)
+    }
   }
 }
 </script>

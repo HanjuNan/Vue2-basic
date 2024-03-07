@@ -4,7 +4,9 @@
     <hr>
 
     <p>count 值：{{ $store.state.count }}</p>
-    <button @click="hClick" class="btn btn-primary">+1</button>
+    <button @click="hClick(1)" class="btn btn-primary">+1</button>
+    <button @click="hClick(5)" class="btn btn-primary">+5</button>
+    <button @click="hClick(10)" class="btn btn-primary">+10</button>
   </div>
 </template>
 
@@ -12,9 +14,9 @@
 export default {
   name: 'MyLeft',
   methods: {
-    hClick () {
+    hClick (n) {
       // 调用mutations的函数操作
-      this.$store.commit('addCount')
+      this.$store.commit('addCount', n)
     }
   }
 }

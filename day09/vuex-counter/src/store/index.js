@@ -21,8 +21,15 @@ const store = new Vuex.Store({
     // 唯一操作state的途径
     // 用法: mutations就是一个对象,里面可以定义很多函数,在函数里面操作state
     // 所有的mutations就是一个对象,里面可以定义很多函数,在函数内操作state
-    addCount (state) {
-      state.count += 1
+    // 所有的muations函数第一个参数永远都是state
+    // 第二个参数永远都是payload
+    // mutations的函数只有这两个参数,如果需要携带多个参数怎么办?
+    // 传对象和数组
+    addCount (state, payload) {
+      state.count += payload
+    },
+    subCount (state, payload) {
+      state.count -= payload
     }
   }
 })
