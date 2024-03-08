@@ -7,6 +7,7 @@
     <button @click="hClick(1)" class="btn btn-primary">+1</button>
     <button @click="hClick(5)" class="btn btn-primary">+5</button>
     <button @click="hClick(10)" class="btn btn-primary">+10</button>
+    <button @click="hClickAsync" class="btn btn-primary">2s后改为666</button>
   </div>
 </template>
 
@@ -17,6 +18,9 @@ export default {
     hClick (n) {
       // 调用mutations的函数操作
       this.$store.commit('addCount', n)
+    },
+    hClickAsync () {
+      this.$store.dispatch('setCountAsync', 666)
     }
   }
 }

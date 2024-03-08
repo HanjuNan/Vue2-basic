@@ -33,6 +33,21 @@ const store = new Vuex.Store({
     },
     setCount (state, n) {
       state.count = n
+    },
+    setCountAsync (state, count) {
+      setTimeout(() => {
+        state.count = count
+      }, 2000)
+    }
+  },
+  // 专门做异步任务
+  actions: {
+    // actions里面的函数第一个参数永远都是context对象
+    // context是简化版的store对象,里面有commit方法
+    setCountAsync (context, n) {
+      setTimeout(() => {
+        context.commit('setCount', n)
+      }, 2000)
     }
   }
 })

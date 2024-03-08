@@ -7,11 +7,12 @@
     <button @click="hClick(1)" class="btn btn-warning">-1</button>
     <button @click="hClick(5)" class="btn btn-warning">-5</button>
     <button @click="hClick(10)" class="btn btn-warning">-10</button>
+    <button @click="setCountAsync(999)" class="btn btn-warning">2s后修改成999</button>
   </div>
 </template>
 
 <script>
-import { mapState, mapMutations } from 'vuex'
+import { mapState, mapMutations, mapActions } from 'vuex'
 // console.log('mapState = ', mapState(['count']))
 // mapState的返回值是对象 ...mapState()对对象进行解构赋值,将对应的函数取出来
 // 大白话理解辅助函数: 就是vuex帮我们写好了计算属性,放到对象中返回给我们了.
@@ -31,7 +32,8 @@ export default {
       // this.$store.commit('subCount', n)
       this.subCount(n)
     },
-    ...mapMutations(['subCount'])
+    ...mapMutations(['subCount']),
+    ...mapActions(['setCountAsync'])
   }
 }
 </script>
