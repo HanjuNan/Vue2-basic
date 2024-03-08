@@ -8,6 +8,9 @@
     <button @click="hClick(5)" class="btn btn-primary">+5</button>
     <button @click="hClick(10)" class="btn btn-primary">+10</button>
     <button @click="hClickAsync" class="btn btn-primary">2s后改为666</button>
+    <hr />
+    <p>直接使用state里面的数据: {{ $store.state.list }}</p>
+    <p>使用getters: {{ $store.getters.filterList }}</p>
   </div>
 </template>
 

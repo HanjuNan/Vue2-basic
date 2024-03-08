@@ -15,7 +15,8 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
   // state:存放数据的位置
   state: {
-    count: 100
+    count: 100,
+    list: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
   },
   mutations: {
     // 唯一操作state的途径
@@ -48,6 +49,12 @@ const store = new Vuex.Store({
       setTimeout(() => {
         context.commit('setCount', n)
       }, 2000)
+    }
+  },
+  // Vuex里面的计算属性
+  getters: {
+    filterList (state) {
+      return state.list.filter(item => item > 5)
     }
   }
 })

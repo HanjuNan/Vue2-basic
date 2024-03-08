@@ -65,6 +65,8 @@ mapMutations和mapState很像,它是把位于mutations中的方法提取出来�
 目标: 掌握辅助函数mapActions,映射方法
 mapActions是把位于actions的方法提取出来,映射到methods中
 
+# 核心概念-getters
+目标: 掌握核心概念getters的基本用法(类似于计算属性)
 
 
 
