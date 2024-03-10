@@ -20,7 +20,10 @@ const actions = {
 }
 
 const getters = {
-
+  // 将姓名转为全大写
+  upperName (state) {
+    return state.userInfo.name.toUpperCase()
+  }
 }
 export default {
   namespaced: true,

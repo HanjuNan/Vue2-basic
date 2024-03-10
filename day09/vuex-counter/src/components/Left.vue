@@ -3,6 +3,7 @@
     <h3>Left 组件</h3>
     <button class="btn btn-primary">+1</button>
     <p>姓名: {{ $store.state.user.userInfo.name }}</p>
+    <p>大写姓名: {{ $store.getters['user/upperName']}}</p>
     <button @click="changeUser" class="btn btn-primary">改名</button>
 
   </div>
