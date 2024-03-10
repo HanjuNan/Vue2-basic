@@ -16,7 +16,11 @@ const mutations = {
 }
 
 const actions = {
-
+  updateUserAsync (context, user) {
+    setTimeout(() => {
+      context.commit('updateUser', user)
+    }, 1000)
+  }
 }
 
 const getters = {
