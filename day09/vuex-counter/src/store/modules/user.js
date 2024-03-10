@@ -9,7 +9,10 @@ const state = {
 }
 
 const mutations = {
-
+  updateUser (state, user) {
+    console.log('我是user模块的updateUser')
+    state.userInfo = user
+  }
 }
 
 const actions = {
@@ -20,6 +23,7 @@ const getters = {
 
 }
 export default {
+  namespaced: true,
   state,
   mutations,
   actions,

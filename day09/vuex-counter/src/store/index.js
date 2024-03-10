@@ -15,6 +15,11 @@ Vue.use(Vuex)
 
 // 创建仓库 new Vuex.Store()
 const store = new Vuex.Store({
+  mutations: {
+    updateUser () {
+      console.log('我是全局updateUser')
+    }
+  },
   modules: {
     // 注册一个名为user的模块
     user,
